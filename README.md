@@ -114,3 +114,25 @@ coinType针对不同链分别是
 ## addr(bytes32 node) || addr(bytes32 node, uint coinType)
 
 从节点获取地址
+
+# DAPP的工作流程
+
+在部署了ENSRegister和PublicResolver合约后
+
+1. 打开DAPP画面，检测当前账号是否是根节点管理员，不是到第4步
+2. 根节点管理员画面，显示域名名称输入框和管理账号输入框，提交按钮
+3. 有人在JCC群里申请域名，管理员填写域名和对方账号，检查是否重复，如果有重复，提示是否更新，确认提交（ensRegistry.setSubnodeOwner）
+4. 域名持有者画面，显示域名输入框
+5. 持有者输入域名，检查是否是该持有者(ensRegistry.owner(namehash('chtian'))), 不是，显示提示没有管理权限，否则继续
+6. 显示该域名映射的地址到编辑框，允许持有者修改(resolver.setAddr(bytes32,address)),提交即可
+
+***说明：子域名可以自己指定其他解析器，管理员账号本身也可以是多签名，请求域名本身也可以做成投票，没空搞，用qq群，交给社区自己玩吧***
+
+# 第三方应用如何使用
+
+当用户转账给一个名字的时候，例如A地址转给"寒狼"，应该这么搞
+
+1. 找出他的解析器： resolver = await ensRegistry.resolver(namehash('寒狼'))
+2. 通过解析器找出寒狼的钱包： resolver.addr(namehash('寒狼'))
+
+如果返回是0x0，说明"寒狼"这个域名没有被注册，可以到群里申请抢注
