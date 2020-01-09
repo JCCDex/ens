@@ -5,7 +5,7 @@ import "./ResolverBase.sol";
 contract AddrResolver is ResolverBase {
   bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
   bytes4 constant private ADDRESS_INTERFACE_ID = 0xf1cb7e06;
-  uint constant private COIN_TYPE_MOAC = 471;
+  uint constant private COIN_TYPE_MOAC = 314;
 
   event AddrChanged(bytes32 indexed node, address a);
   event AddressChanged(bytes32 indexed node, uint coinType, bytes newAddress);

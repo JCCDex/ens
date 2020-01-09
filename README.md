@@ -91,14 +91,14 @@ ENS是在“节点”上运行，而不是在人为易懂的名称上运行； �
 
 ## coinType
 
-原ENS Resolvers的代码中引用的coinType定义规则来自[BIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md), 我们已经提交了MOAC和SWTC的[PR](https://github.com/satoshilabs/slips/pull/854), 对应BIP44的nodejs包[bip44-constants](https://www.npmjs.com/package/bip44-constants)。
+原ENS Resolvers的代码中引用的coinType定义规则来自[BIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md), 对应BIP44的nodejs包[bip44-constants](https://www.npmjs.com/package/bip44-constants)。
 
 coinType针对不同链分别是
 
 * BTC 0
 * ETH 60
-* SWTC 470
-* MOAC 471
+* SWTC 315
+* MOAC 314
 
 本合约对于MOAC地址无须转换，但是SWTC地址需要转换成20个字节，需要参考:
 
@@ -136,3 +136,53 @@ coinType针对不同链分别是
 2. 通过解析器找出寒狼的钱包： resolver.addr(namehash('寒狼'))
 
 如果返回是0x0，说明"寒狼"这个域名没有被注册，可以到群里申请抢注
+
+# 常用调试指令
+
+参考角色:
+
+* ENSRegistry 合约属主钱包 ENSRegistry_owner_wallet
+* PublicResolver 合约属主钱包 PublicResolver_owner_wallet
+* 域名属主钱包 Node_owner_wallet
+* 域名映射钱包 user_wallet
+
+测试链ENSRegistry合约地址: 0x5114f0389990f93180c8a1847bac2fa98ca58524
+
+正式链ENSRegistry合约地址: 0xea5a36ed305c5033e6ec27edb48009b79290ea51
+
+```bash
+# 部署合约
+jcc_moac_tool --keystore "ENSRegistry_owner_wallet" --deploy build/contracts/ENSRegistry.json --gas_limit 1000000
+
+# 查询注册合约根节点属主
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "owner" --parameters '"0x0"'
+
+# 注册新域名
+jcc_moac_tool --keystore "ENSRegistry_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "setSubnodeOwner" --parameters '"0x0",chain3.sha3("寒狼"),"Node_owner_wallet"' --gas_limit 50000
+
+# 查询域名的属主
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "owner" --parameters 'namehash("寒狼")'
+
+# 设置域名的解析合约,解析合约地址（0xd168a209adf249f977d60ae4f3d445d04842891c）是随后部署生成的
+jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "setResolver" --parameters 'namehash("寒狼"),"0xd168a209adf249f977d60ae4f3d445d04842891c"' --gas_limit 50000
+
+# 获取域名的解析合约
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "resolver" --parameters 'namehash("寒狼")'
+
+```
+
+测试链PublicResolver合约地址: 0xd168a209adf249f977d60ae4f3d445d04842891c
+
+正式链PublicResolver合约地址: 0xdf1b5192d3fc1928ef7fd0cdd567875972b9c9e4
+
+```bash
+# 部署合约
+jcc_moac_tool --keystore "PublicResolver_owner_wallet" --deploy build/contracts/PublicResolver.json --gas_limit 1000000 --parameters '"0x5114f0389990f93180c8a1847bac2fa98ca58524"'
+
+# 设置域名和地址的对应关系:设置域名寒狼的映射钱包地址
+jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "setAddr" --parameters 'namehash("寒狼"),"user_wallet"' --gas_limit 100000
+
+# 通过域名查询钱包地址
+jcc_moac_tool --config ~/.jcc_moac_tool/config.test.json --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "addr" --parameters 'namehash("寒狼")'
+
+```
