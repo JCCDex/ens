@@ -183,6 +183,6 @@ jcc_moac_tool --keystore "PublicResolver_owner_wallet" --deploy build/contracts/
 jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "setAddr" --parameters 'namehash("寒狼"),"user_wallet"' --gas_limit 100000
 
 # 通过域名查询钱包地址
-jcc_moac_tool --config ~/.jcc_moac_tool/config.test.json --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "addr" --parameters 'namehash("寒狼")'
+jcc_moac_tool --keystore "any_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "addr" --parameters 'namehash("寒狼")'
 
 ```
