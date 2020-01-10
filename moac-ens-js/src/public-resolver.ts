@@ -96,6 +96,11 @@ export default class PublicResolverContract extends SmartContract {
    * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
    * @param {string} address
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
+   *
+   * You could send transaction via `sendTransaction` directly.
+   *
+   * For DAPP, you could send via wallet sdk API.
+   *
    * @memberof PublicResolverContract
    */
   public setAddrWithoutCoinType(node: string, address: string, cb: (err: Error, calldata: string) => void) {
