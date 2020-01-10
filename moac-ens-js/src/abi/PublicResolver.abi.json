@@ -1,36 +1,46 @@
-[{
+[
+  {
     "constant": true,
-    "inputs": [{
-      "name": "interfaceID",
-      "type": "bytes4"
-    }],
+    "inputs": [
+      {
+        "name": "interfaceID",
+        "type": "bytes4"
+      }
+    ],
     "name": "supportsInterface",
-    "outputs": [{
-      "name": "",
-      "type": "bool"
-    }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [{
-      "name": "node",
-      "type": "bytes32"
-    }],
+    "inputs": [
+      {
+        "name": "node",
+        "type": "bytes32"
+      }
+    ],
     "name": "addr",
-    "outputs": [{
-      "name": "",
-      "type": "address"
-    }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": false,
-    "inputs": [{
+    "inputs": [
+      {
         "name": "node",
         "type": "bytes32"
       },
@@ -51,7 +61,8 @@
   },
   {
     "constant": false,
-    "inputs": [{
+    "inputs": [
+      {
         "name": "node",
         "type": "bytes32"
       },
@@ -68,7 +79,8 @@
   },
   {
     "constant": true,
-    "inputs": [{
+    "inputs": [
+      {
         "name": "node",
         "type": "bytes32"
       },
@@ -78,17 +90,20 @@
       }
     ],
     "name": "addr",
-    "outputs": [{
-      "name": "",
-      "type": "bytes"
-    }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [{
+    "inputs": [
+      {
         "name": "",
         "type": "bytes32"
       },
@@ -102,26 +117,31 @@
       }
     ],
     "name": "authorisations",
-    "outputs": [{
-      "name": "",
-      "type": "bool"
-    }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{
-      "name": "_ens",
-      "type": "address"
-    }],
+    "inputs": [
+      {
+        "name": "_ens",
+        "type": "address"
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
   {
     "anonymous": false,
-    "inputs": [{
+    "inputs": [
+      {
         "indexed": true,
         "name": "node",
         "type": "bytes32"
@@ -147,7 +167,8 @@
   },
   {
     "anonymous": false,
-    "inputs": [{
+    "inputs": [
+      {
         "indexed": true,
         "name": "node",
         "type": "bytes32"
@@ -163,7 +184,8 @@
   },
   {
     "anonymous": false,
-    "inputs": [{
+    "inputs": [
+      {
         "indexed": true,
         "name": "node",
         "type": "bytes32"
@@ -184,7 +206,8 @@
   },
   {
     "constant": false,
-    "inputs": [{
+    "inputs": [
+      {
         "name": "node",
         "type": "bytes32"
       },

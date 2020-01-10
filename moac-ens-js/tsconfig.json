@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5"],
+    "outDir": "lib",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "declaration": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"]
+}
