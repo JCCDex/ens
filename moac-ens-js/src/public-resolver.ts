@@ -48,7 +48,9 @@ export default class PublicResolverContract extends SmartContract {
   /**
    * Query address of node without coin type
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @returns {Promise<string>}
    * @memberof PublicResolverContract
    */
@@ -93,8 +95,11 @@ export default class PublicResolverContract extends SmartContract {
   /**
    * Set address of node without coin type
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @param {string} address
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -117,9 +122,13 @@ export default class PublicResolverContract extends SmartContract {
   /**
    * Set authorisation
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @param {string} target address
+   *
    * @param {boolean} isAuthorised
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -145,7 +154,7 @@ export default class PublicResolverContract extends SmartContract {
   }
 
   /**
-   * send transaction
+   * Send transaction
    *
    * @param {string} amount
    * @param {string} calldata

@@ -36,8 +36,11 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Set owner of node
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @param {string} owner address
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -60,9 +63,14 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Set owner of sub node
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
-   * @param {string} label you need generate hash from `label` value with [sha3](https://github.com/MOACChain/chain3/blob/master/lib/utils/sha3.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
+   * @param {string} label you need generate hash from `label` value
+   * with [sha3](https://github.com/MOACChain/chain3/blob/master/lib/utils/sha3.js#L29) API in general.
+   *
    * @param {string} owner address
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -85,8 +93,11 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Set resolver
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @param {string} resolver address
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -109,8 +120,11 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Set TTL
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @param {number} ttl
+   *
    * @param {(err: Error, calldata: string) => void} cb send transaction with calldata by yourself
    *
    * You could send transaction via `sendTransaction` directly.
@@ -133,7 +147,9 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Query the owner of node
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @returns {Promise<string>}
    * @memberof ENSRegistryContract
    */
@@ -145,7 +161,9 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Query resolver
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @returns {Promise<string>}
    * @memberof ENSRegistryContract
    */
@@ -157,7 +175,9 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Query TTL
    *
-   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   * @param {string} node If node is not `rootNode`, you need generate hash from `node` value
+   * with [hash](https://github.com/danfinlay/eth-ens-namehash/blob/master/index.js#L29) API in general.
+   *
    * @returns {Promise<number>}
    * @memberof ENSRegistryContract
    */
@@ -167,7 +187,7 @@ export default class ENSRegistryContract extends SmartContract {
   }
 
   /**
-   * send transaction
+   * Send transaction
    *
    * @param {string} amount
    * @param {string} calldata
