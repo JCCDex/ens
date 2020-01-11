@@ -1,6 +1,6 @@
 {
   "name": "moac-ens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "moac ens javascript sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -53,5 +53,13 @@
     }
   },
   "author": "GinMu",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCCDex/ens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JCCDex/ens/issues"
+  },
+  "homepage": "https://github.com/JCCDex/ens"
 }
