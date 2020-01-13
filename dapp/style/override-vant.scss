@@ -1,0 +1,64 @@
+@import "./mixin.scss";
+
+.van-icon-close:before {
+    content: "\F042" !important;
+    color: #cad1e8;
+}
+
+.van-action-sheet {
+    color: #4c4f54 !important;
+}
+
+.van-cell {
+    height: 0.8rem !important;
+    border: 0.01rem solid #c3c4cb !important;
+    border-radius: 0.08rem;
+    color: #4c4f54;
+    @include px2px("font-size", 14);
+}
+
+.van-field__clear {
+    @include px2px("font-size", 16);
+}
+
+.van-field {
+    height: 0.9rem !important;
+}
+
+.van-field__control,
+.van-cell__value--alone {
+    color: #4c4f54 !important;
+}
+
+.van-field__left-icon {
+    margin-right: 0.05rem !important;
+}
+
+.van-action-sheet__header {
+    line-height: 0.8rem !important;
+    @include px2px("font-size", 14);
+    border-bottom: 0.01rem solid #cad1e8;
+
+    .van-action-sheet__close {
+        @include px2px("font-size", 15);
+    }
+}
+
+.van-action-sheet__content {
+    padding: 0.3rem;
+}
+
+.van-toast {
+    @include px2px("font-size", 14);
+    top: 75% !important;
+    width: 2rem !important;
+
+    .van-loading__spinner {
+        width: 0.3rem !important;
+        height: 0.3rem !important;
+    }
+
+    .van-toast__text {
+        line-height: 0.4rem;
+    }
+}
