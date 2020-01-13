@@ -146,7 +146,7 @@ coinType针对不同链分别是
 * 域名属主钱包 Node_owner_wallet
 * 域名映射钱包 user_wallet
 
-测试链ENSRegistry合约地址: 0x5114f0389990f93180c8a1847bac2fa98ca58524
+测试链ENSRegistry合约地址: 0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647
 
 正式链ENSRegistry合约地址: 0xea5a36ed305c5033e6ec27edb48009b79290ea51
 
@@ -155,34 +155,34 @@ coinType针对不同链分别是
 jcc_moac_tool --keystore "ENSRegistry_owner_wallet" --deploy build/contracts/ENSRegistry.json --gas_limit 1000000
 
 # 查询注册合约根节点属主
-jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "owner" --parameters '"0x0"'
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647" --method "owner" --parameters '"0x0"'
 
 # 注册新域名
-jcc_moac_tool --keystore "ENSRegistry_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "setSubnodeOwner" --parameters '"0x0",chain3.sha3("寒狼"),"Node_owner_wallet"' --gas_limit 50000
+jcc_moac_tool --keystore "ENSRegistry_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647" --method "setSubnodeOwner" --parameters '"0x0",chain3.sha3("寒狼"),"Node_owner_wallet"' --gas_limit 50000
 
 # 查询域名的属主
-jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "owner" --parameters 'namehash("寒狼")'
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647" --method "owner" --parameters 'namehash("寒狼")'
 
-# 设置域名的解析合约,解析合约地址（0xd168a209adf249f977d60ae4f3d445d04842891c）是随后部署生成的
-jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "setResolver" --parameters 'namehash("寒狼"),"0xd168a209adf249f977d60ae4f3d445d04842891c"' --gas_limit 50000
+# 设置域名的解析合约,解析合约地址（0xb9ee5486070b085c8dc133854d1a08657ce59980）是随后部署生成的
+jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/ENSRegistry.json --contractAddr "0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647" --method "setResolver" --parameters 'namehash("寒狼"),"0xb9ee5486070b085c8dc133854d1a08657ce59980"' --gas_limit 50000
 
 # 获取域名的解析合约
-jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0x5114f0389990f93180c8a1847bac2fa98ca58524" --method "resolver" --parameters 'namehash("寒狼")'
+jcc_moac_tool --abi build/contracts/ENSRegistry.json --contractAddr "0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647" --method "resolver" --parameters 'namehash("寒狼")'
 
 ```
 
-测试链PublicResolver合约地址: 0xd168a209adf249f977d60ae4f3d445d04842891c
+测试链PublicResolver合约地址: 0xb9ee5486070b085c8dc133854d1a08657ce59980
 
 正式链PublicResolver合约地址: 0xdf1b5192d3fc1928ef7fd0cdd567875972b9c9e4
 
 ```bash
 # 部署合约
-jcc_moac_tool --keystore "PublicResolver_owner_wallet" --deploy build/contracts/PublicResolver.json --gas_limit 1000000 --parameters '"0x5114f0389990f93180c8a1847bac2fa98ca58524"'
+jcc_moac_tool --keystore "PublicResolver_owner_wallet" --deploy build/contracts/PublicResolver.json --gas_limit 1000000 --parameters '"0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647"'
 
 # 设置域名和地址的对应关系:设置域名寒狼的映射钱包地址
-jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "setAddr" --parameters 'namehash("寒狼"),"user_wallet"' --gas_limit 100000
+jcc_moac_tool --keystore "Node_owner_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xb9ee5486070b085c8dc133854d1a08657ce59980"  --method "setAddr" --parameters 'namehash("寒狼"),"user_wallet"' --gas_limit 100000
 
 # 通过域名查询钱包地址
-jcc_moac_tool --keystore "any_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xd168a209adf249f977d60ae4f3d445d04842891c"  --method "addr" --parameters 'namehash("寒狼")'
+jcc_moac_tool --keystore "any_wallet" --abi build/contracts/PublicResolver.json --contractAddr "0xb9ee5486070b085c8dc133854d1a08657ce59980"  --method "addr" --parameters 'namehash("寒狼")'
 
 ```

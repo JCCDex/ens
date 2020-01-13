@@ -1,0 +1,27 @@
+{
+  "copyright": "版权开发：安徽井畅数字技术有限公司",
+  "pls_input_address": "请输入钱包地址",
+  "pls_input_domain": "请输入域名",
+  "query_result": "查询结果: ",
+  "jingchang_ens": "井畅域名服务",
+  "hello": "你好,",
+  "admin": "管理员！",
+  "domain": "域名:",
+  "account": "账户地址:",
+  "submit": "提交",
+  "search": "查询",
+  "query_domain": "查询域名",
+  "submit_success": "已提交成功",
+  "submit_fail": "啊哦，出现问题了，请重新提交",
+  "applied": "已申请",
+  "not_apply": "未申请",
+  "set_address": "设置钱包地址（点击可修改）:",
+  "goto_qq": {
+    "content1": "请去QQ群",
+    "content2": "6238210712",
+    "content3": "（点击复制群号申请）"
+  },
+  "message": {
+    "querying": "查询中"
+  }
+}
