@@ -24,7 +24,7 @@ export default {
             : "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"
       },
       {
-        src: "https://cdn.jsdelivr.net/npm/jcc-moac-utils@0.2.7/dist/jcc-moac-utils.min.js"
+        src: "https://cdn.jsdelivr.net/npm/jcc-moac-utils@0.2.9/dist/jcc-moac-utils.min.js"
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -102,7 +102,7 @@ export default {
         );
         config.plugins.push(
           new WebpackAutoInject({
-            SHORT: "Account credit for SWTC",
+            SHORT: "Jingchang ENS Service",
             SILENT: true,
             PACKAGE_JSON_PATH: "./package.json",
             components: {
