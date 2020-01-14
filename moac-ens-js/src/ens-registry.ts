@@ -9,7 +9,7 @@ export default class ENSRegistryContract extends SmartContract {
   /**
    * Creates an instance of ENSRegistryContract.
    *
-   * Test: `0x5114f0389990f93180c8a1847bac2fa98ca58524`
+   * Test: `0xbd1a42b09b52e84e2a95dd1c38b7125daf5f6647`
    *
    * Main: `0xea5a36ed305c5033e6ec27edb48009b79290ea51`
    *

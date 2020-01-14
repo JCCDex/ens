@@ -9,7 +9,7 @@ export default class PublicResolverContract extends SmartContract {
   /**
    * Creates an instance of PublicResolverContract.
    *
-   * Test: `0xd168a209adf249f977d60ae4f3d445d04842891c`
+   * Test: `0xb9ee5486070b085c8dc133854d1a08657ce59980`
    *
    * Main: `0xdf1b5192d3fc1928ef7fd0cdd567875972b9c9e4`
    *
