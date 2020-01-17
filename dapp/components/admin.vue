@@ -18,9 +18,22 @@
         </p>
         <van-field v-model="address" center type="text" :placeholder="$t('pls_input_address')" @focus="disableScroll" @blur="enableScroll" />
 
-        <button :disabled="!submitEnable" class="jingchang-button jingchang-search-button" style="width: 100%;margin-top: 0.5rem;" @click="submit">
-          {{ $t("submit") }}
-        </button>
+        <div v-show="status" style="height:0.8rem;text-align:left; word-break: break-all;margin-top: 0.5rem;">
+          {{ status }}
+        </div>
+        <div flex style="width:100%;">
+          <button :disabled="!queryEnable" class="jingchang-button jingchang-search-button" style="width: 45%;margin-top: 0.5rem;" @click="query">
+            {{ $t("search") }}
+          </button>
+          <button
+            :disabled="!submitEnable"
+            class="jingchang-button jingchang-search-button"
+            style="width: 45%;margin-top: 0.5rem;margin-left:10%"
+            @click="submit"
+          >
+            {{ $t("submit") }}
+          </button>
+        </div>
       </div>
       <div flex-box="1" flex="cross:bottom">
         <copyright-footer />
@@ -38,6 +51,7 @@ import { browser } from "@/js/util";
 import { ENSRegistryContract } from "moac-ens";
 import { ensInstance } from "@/js/contract";
 import tpInfo from "@/js/tp";
+const namehash = require("eth-ens-namehash").hash;
 
 export default {
   name: "Admin",
@@ -50,10 +64,15 @@ export default {
       bs: null,
       address: "",
       domain: "",
+      status: "",
       innerHeight: window.innerHeight
     };
   },
   computed: {
+    queryEnable() {
+      return this.domain;
+    },
+
     submitEnable() {
       return this.domain && Moac.isValidAddress(this.address.trim());
     }
@@ -79,6 +98,27 @@ export default {
     enableScroll() {
       if (browser.versions.ios) {
         this.bs && this.bs.enable();
+      }
+    },
+    async query() {
+      try {
+        const node = await tpInfo.getNode();
+        const inst = ensInstance.init(node);
+        let domain = this.domain.trim();
+        if (domain !== ENSRegistryContract.rootNode) {
+          domain = namehash(domain);
+        }
+        const owner = await inst.owner(domain);
+        console.log("owner: ", owner);
+        if (owner.toLowerCase() === ENSRegistryContract.rootNode) {
+          this.status = this.$t("ownerStatus.not_register");
+        } else {
+          this.status = this.$t("ownerStatus.had_registered", {
+            address: owner
+          });
+        }
+      } catch (error) {
+        this.status = this.$t("ownerStatus.query_fail");
       }
     },
     async submit() {

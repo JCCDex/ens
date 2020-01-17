@@ -23,5 +23,10 @@
   },
   "message": {
     "querying": "查询中"
+  },
+  "ownerStatus": {
+    "had_registered": "已注册：{address}",
+    "not_register": "未注册",
+    "query_fail": "查询失败"
   }
 }
