@@ -85,9 +85,9 @@ export default {
       try {
         const node = await tpInfo.getNode();
         const inst = ensInstance.init(node);
-        let domain = this.domain;
+        let domain = this.domain.trim();
         if (domain !== ENSRegistryContract.rootNode) {
-          domain = inst.moac._chain3.sha3(this.domain);
+          domain = inst.moac._chain3.sha3(domain);
         }
         inst.setSubnodeOwner(ENSRegistryContract.rootNode, domain, this.address.trim(), async (err, calldata) => {
           try {

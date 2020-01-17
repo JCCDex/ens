@@ -83,7 +83,7 @@ export default {
         const address = await tpInfo.getAddress();
         const node = await tpInfo.getNode();
         const instance = ensInstance.init(node);
-        let domain = this.domain;
+        let domain = this.domain.trim();
 
         if (domain !== ENSRegistryContract.rootNode) {
           domain = namehash(domain);
