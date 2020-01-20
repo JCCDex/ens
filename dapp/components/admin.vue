@@ -125,7 +125,7 @@ export default {
       try {
         const node = await tpInfo.getNode();
         const inst = ensInstance.init(node);
-        let domain = this.domain.trim();
+        let domain = this.domain.toLowerCase().trim();
         if (domain !== ENSRegistryContract.rootNode) {
           domain = inst.moac._chain3.sha3(domain);
         }
